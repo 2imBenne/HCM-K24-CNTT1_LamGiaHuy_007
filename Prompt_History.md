@@ -51,4 +51,19 @@ Ràng buộc: Không được xóa bỏ các hàm xử lý lỗi cũ. Hãy bổ 
 Đảm bảo rằng khi lỗi này xảy ra, hệ thống trả về mã HTTP Status Code 429 (Too Many Requests) cùng với thông báo chính xác là: 'Quý khách đã vượt hạn mức giao dịch trong ngày'."
 
 ### Prompt 10:
-"[SRS.md](file;file:///d%3A/HCM-K24-CNTT1_LamGiaHuy_007/CoreBanking/SRS.md) để trực quan hóa luồng dự án trong SRS hãy bổ sung thêm cho tôi sơ đồ mermaid luồng thực thi nghiệp vụ"
+"Để trực quan hóa luồng dự án, hãy bổ sung thêm cho tôi sơ đồ Mermaid Flowchart vào file SRS.md để mô tả luồng thực thi nghiệp vụ (từ kiểm tra số dư đến bắt lỗi vượt hạn mức)."
+
+### Prompt 11:
+"Dự án đã xong tính năng, nhưng để đảm bảo độ tin cậy, hãy viết Unit Test cho tầng Service (BankAccountServiceTest.java).
+Yêu cầu sử dụng JUnit 5, Mockito và tuân thủ chặt chẽ mô hình AAA.
+Hãy giả lập (Mock) Repository để test đủ các kịch bản thực tế:
+1. Giao dịch thành công.
+2. Tổng tiền vừa bằng hạn mức.
+3. Exception: Vượt hạn mức (Trả về lỗi DailyLimitExceededException).
+4. Exception: Số dư không đủ (Insufficient Balance).
+5. Exception: Không tìm thấy tài khoản (Account Not Found)."
+
+### Prompt 12:
+"Để chứng minh tầng Controller xử lý ngoại lệ HTTP 429 chính xác, hãy viết thêm BankAccountControllerTest.java.
+Sử dụng MockMvcBuilders.standaloneSetup kết hợp với GlobalExceptionHandle.
+Hãy viết test giả lập tình huống: Gửi request chuyển khoản vượt hạn mức, bắt Service ném lỗi `DailyLimitExceededException và Assert rằng Controller trả về đúng mã HTTP Status 429 Too Many Requests kèm câu thông báo chuẩn."
